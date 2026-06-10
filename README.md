@@ -1,6 +1,10 @@
 # Too Much Banger
 
-A Next.js and Supabase scrapbook application capturing the discourse, memes, and rants from Bangerlore.
+The morning-after archive of Bangerlore. After the party, tech twitter exploded with unhinged opinions, FOMO, cringe, and copium. This is a satirical platform that collects the best (and worst) tweets from the chaos. Browse the wall of drama and vote on the most absurd ones. Leaderboards for Peak FOMO, Most Unhinged, and Cringe Hall of Fame.Too much banger. Zero filter.
+
+Visit : toomuchbanger.in
+ 
+
 
 ---
 
