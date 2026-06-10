@@ -1,0 +1,1131 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap");
+
+:root {
+  --ink: #1c1714;
+  --muted: #6d625b;
+  --paper: #fff8e8;
+  --paper-2: #f4e7cf;
+  --red: #c9414a;
+  --red-dark: #8d1825;
+  --yellow: #fff46b;
+  --blue: #55c9e4;
+  --green: #18a66a;
+  --pink: #f7a0bd;
+  --shadow: 0 22px 70px rgba(35, 18, 10, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(255, 244, 107, 0.55), transparent 28rem),
+    radial-gradient(circle at 86% 2%, rgba(85, 201, 228, 0.48), transparent 24rem),
+    linear-gradient(135deg, #fff8e8 0%, #f0d3c7 48%, #cde9ee 100%);
+  font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(28, 23, 20, 0.16) 1.2px, transparent 1.4px),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.22), transparent 42%);
+  background-size: 22px 22px, auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.section-pad {
+  padding: 88px clamp(20px, 5vw, 80px);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  color: #f7efe4;
+  background:
+    linear-gradient(rgba(12, 13, 13, 0.88), rgba(12, 13, 13, 0.86)),
+    radial-gradient(circle at 74% 30%, rgba(201, 65, 74, 0.65), transparent 26rem),
+    #101010;
+  isolation: isolate;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.32;
+  background:
+    linear-gradient(90deg, transparent 0 46%, rgba(255, 255, 255, 0.12) 48% 50%, transparent 52%),
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(255, 255, 255, 0.04) 8px);
+  mix-blend-mode: screen;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: clamp(34px, 6vh, 62px);
+}
+
+.topbar a {
+  border: 1px solid rgba(255, 248, 232, 0.24);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+  gap: clamp(32px, 7vw, 110px);
+  align-items: stretch;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--red);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #ff7c86;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+h1 {
+  max-width: 860px;
+  font-size: clamp(4.6rem, 12vw, 10.8rem);
+}
+
+h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+}
+
+.dek {
+  max-width: 680px;
+  margin: 26px 0 0;
+  color: rgba(247, 239, 228, 0.82);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.entry-card,
+.context-card,
+.join,
+.tweet-card,
+.evidence-card {
+  border: 2px solid rgba(28, 23, 20, 0.16);
+  box-shadow: var(--shadow);
+}
+
+.entry-card {
+  max-width: 640px;
+  margin-top: 36px;
+  border-color: rgba(255, 248, 232, 0.18);
+  border-radius: 28px;
+  padding: 22px;
+  background: rgba(255, 248, 232, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.entry-card p {
+  margin: 0;
+}
+
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+
+.choice,
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 18px;
+  color: var(--paper);
+  background: var(--red);
+  box-shadow: 0 8px 0 var(--red-dark);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.choice:not(.active) {
+  color: var(--ink);
+  background: var(--yellow);
+  box-shadow: 0 8px 0 #a58908;
+}
+
+.choice:hover,
+.primary-button:hover {
+  transform: translateY(3px);
+  box-shadow: 0 5px 0 var(--red-dark);
+}
+
+.choice:not(.active):hover {
+  box-shadow: 0 5px 0 #a58908;
+}
+
+.choice-caption {
+  color: rgba(247, 239, 228, 0.72);
+}
+
+
+
+.context {
+  background: rgba(255, 248, 232, 0.72);
+}
+
+.section-heading {
+  max-width: 820px;
+  margin-bottom: 34px;
+}
+
+.section-heading p:last-child {
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.context-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  border-radius: 34px;
+  padding: clamp(24px, 4vw, 46px);
+  background: #fffdf5;
+}
+
+.context-card p {
+  margin: 0;
+  color: #3f342d;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.45;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.timeline article {
+  border: 1px dashed rgba(28, 23, 20, 0.35);
+  border-radius: 22px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.timeline span {
+  color: var(--red);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.timeline p {
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+.meanwhile {
+  padding: 70px 20px;
+  background:
+    linear-gradient(90deg, var(--red-dark), #c20d47 48%, #174bd5 49% 50%, #ababab 50% 62%, #111 62%);
+  overflow: hidden;
+}
+
+.comic-panel {
+  max-width: 980px;
+  margin: 0 auto;
+  border: 5px solid var(--ink);
+  border-radius: 28px;
+  padding: clamp(22px, 5vw, 44px);
+  color: #090909;
+  background: var(--yellow);
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.62);
+  transform: rotate(-2deg);
+}
+
+.comic-panel span {
+  display: block;
+  font-size: clamp(2.6rem, 8vw, 7.8rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.archive {
+  background: #ffffff;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 44px;
+}
+
+/* Authentic X Tweet Card styling */
+.tweet-card {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 44px;
+  break-inside: avoid;
+  border: 1px solid #e1e8ed;
+  border-radius: 16px;
+  padding: 16px;
+  background: #ffffff;
+  color: #0f1419;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 10px 32px rgba(35, 18, 10, 0.05);
+  transform: rotate(var(--rotate));
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.tweet-card:hover {
+  z-index: 10;
+  box-shadow: 0 22px 50px rgba(35, 18, 10, 0.12);
+  transform: rotate(0deg) scale(1.02);
+}
+
+.tweet-card.featured {
+  border-color: rgba(29, 155, 240, 0.35); /* Twitter blue color frame */
+  box-shadow: 0 12px 38px rgba(29, 155, 240, 0.08);
+}
+
+.tweet-left {
+  flex-shrink: 0;
+}
+
+.tweet-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f7f9fa;
+  font-size: 20px;
+  border: 1px solid #e1e8ed;
+  user-select: none;
+}
+
+.tweet-right {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.tweet-author-name {
+  font-weight: 700;
+  color: #0f1419;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tweet-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  color: #1d9bf0;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.verified-icon {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.tweet-handle {
+  color: #536471;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tweet-dot {
+  color: #536471;
+}
+
+.tweet-time {
+  color: #536471;
+  white-space: nowrap;
+}
+
+.tweet-text {
+  margin: 0 0 12px;
+  font-family: inherit; /* override Fraunces for authentic body text */
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0f1419;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.tweet-media {
+  margin-bottom: 12px;
+  border: 1px solid #cfd9de;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f7f9fa;
+}
+
+.tweet-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  max-width: 425px;
+  color: #536471;
+  font-size: 13px;
+}
+
+.tweet-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 150ms ease;
+  user-select: none;
+}
+
+.tweet-action svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.tweet-action:hover {
+  color: #1d9bf0;
+}
+.tweet-action.repost:hover {
+  color: #00ba7c;
+}
+.tweet-action.like:hover {
+  color: #f91880;
+}
+
+/* Hover Mask Reveal for Hero Art section */
+.hero-reveal-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+}
+
+.reveal-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: crosshair;
+}
+
+.reveal-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  color: rgba(247, 239, 228, 0.7);
+  text-align: center;
+  background: transparent;
+  z-index: 1;
+}
+
+.reveal-badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  border: 1px dashed rgba(201, 65, 74, 0.5);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.reveal-cover h3 {
+  margin: 0 0 12px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: #f7efe4;
+  letter-spacing: -0.02em;
+}
+
+.reveal-cover p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.reveal-icon {
+  margin-top: 28px;
+  font-size: 34px;
+  opacity: 0.8;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.reveal-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  clip-path: circle(0px at 50% 50%);
+}
+
+.reveal-container.hovered .reveal-image-wrap {
+  opacity: 1;
+  clip-path: circle(180px at var(--mask-x) var(--mask-y));
+}
+
+/* Layer 0: Scattered Dense Photo Collage */
+.reveal-images-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  overflow: hidden;
+}
+
+.collage-polaroid {
+  position: absolute;
+  background: #fcfbf7;
+  border: 1px solid #dcdad5;
+  padding: 8px 8px 26px 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+}
+
+.collage-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+.polaroid-label {
+  display: block;
+  margin-top: 6px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 9px;
+  color: #6d625b;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Collage Positionings */
+.img-1 {
+  width: 170px;
+  top: 6%;
+  left: 6%;
+  transform: rotate(-7deg);
+}
+
+.img-2 {
+  width: 180px;
+  top: 4%;
+  right: 8%;
+  transform: rotate(5deg);
+}
+
+.img-3 {
+  width: 165px;
+  top: 35%;
+  left: 28%;
+  transform: rotate(-11deg);
+  z-index: 3;
+}
+
+.img-4 {
+  width: 180px;
+  bottom: 6%;
+  left: 5%;
+  transform: rotate(9deg);
+}
+
+.img-5 {
+  width: 175px;
+  bottom: 8%;
+  right: 6%;
+  transform: rotate(-6deg);
+}
+
+.img-6 {
+  width: 170px;
+  top: 40%;
+  right: 12%;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+
+/* Layer 2: Reaction Stickers on top of Reveal Section */
+.reveal-sticker {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 4.5px solid #000;
+  border-radius: 24px;
+  padding: 12px 21px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  box-shadow: 6px 6px 0px #000;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.reveal-sticker span {
+  font-size: 30px;
+}
+
+.reveal-sticker b {
+  font-size: 21px;
+}
+
+.reveal-sticker:active {
+  transform: scale(0.9) !important;
+  box-shadow: 3px 3px 0px #000 !important;
+}
+
+/* Sticker Positioning */
+.st-1 {
+  top: 15%;
+  left: 18%;
+  background: var(--yellow);
+  color: #000;
+  transform: rotate(-10deg);
+}
+
+.st-2 {
+  top: 22%;
+  right: 15%;
+  background: var(--pink);
+  color: #000;
+  transform: rotate(8deg);
+}
+
+.st-3 {
+  bottom: 25%;
+  left: 14%;
+  background: var(--blue);
+  color: #000;
+  transform: rotate(-6deg);
+}
+
+.st-4 {
+  bottom: 20%;
+  right: 16%;
+  background: var(--green);
+  color: #fff;
+  border-color: #000;
+  transform: rotate(12deg);
+}
+
+/* Wiggle animations */
+@keyframes wiggleSticker {
+  0%, 100% { transform: scale(1.1) rotate(var(--rot-base, 0deg)); }
+  50% { transform: scale(1.15) rotate(calc(var(--rot-base, 0deg) + 6deg)); }
+}
+
+.st-1:hover {
+  --rot-base: -10deg;
+  animation: wiggleSticker 0.3s ease-in-out infinite alternate;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.st-2:hover {
+  --rot-base: 8deg;
+  animation: wiggleSticker 0.3s ease-in-out infinite alternate;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.st-3:hover {
+  --rot-base: -6deg;
+  animation: wiggleSticker 0.3s ease-in-out infinite alternate;
+  box-shadow: 6px 6px 0px #000;
+}
+
+.st-4:hover {
+  --rot-base: 12deg;
+  animation: wiggleSticker 0.3s ease-in-out infinite alternate;
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* Card-Level Sticker Reactions */
+/* Card-Level Sticker Reactions */
+.card-reactions-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Floating Transparent Reaction Barrel Wheel Menu (Appears on Hover) */
+.tweet-reaction-wheel {
+  position: absolute;
+  top: -195px; /* Position floating above/within the card top right */
+  right: 4px;
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 6px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.9);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+}
+
+/* Make sure hover is responsive relative to the card */
+.tweet-card:hover .tweet-reaction-wheel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.wheel-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.wheel-btn:hover {
+  transform: scale(1.25);
+}
+
+.wheel-btn.thumbsup:hover {
+  background: rgba(24, 166, 106, 0.25);
+  box-shadow: 0 0 12px rgba(24, 166, 106, 0.4);
+}
+
+.wheel-btn.fire:hover {
+  background: rgba(255, 124, 134, 0.25);
+  box-shadow: 0 0 12px rgba(255, 124, 134, 0.4);
+}
+
+.wheel-btn.heart:hover {
+  background: rgba(247, 160, 189, 0.25);
+  box-shadow: 0 0 12px rgba(247, 160, 189, 0.4);
+}
+
+.wheel-btn.crazy:hover {
+  background: rgba(255, 244, 107, 0.25);
+  box-shadow: 0 0 12px rgba(255, 244, 107, 0.4);
+}
+
+.card-reactions-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #e1e8ed;
+}
+
+/* Card Reaction Badges - scaled up by 10% */
+.card-sticker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 2.2px solid #0f1419;
+  border-radius: 13px;
+  padding: 4.5px 9px;
+  color: #0f1419;
+  background: #fffdf5;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  box-shadow: 2.2px 2.2px 0px #0f1419;
+  cursor: pointer;
+  transform: rotate(var(--sticker-rot));
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  user-select: none;
+}
+
+.card-sticker-badge:hover {
+  background: #ffffff;
+  transform: scale(1.1) rotate(0deg) !important;
+  box-shadow: 3.3px 3.3px 0px #0f1419;
+}
+
+.card-sticker-badge:active {
+  transform: scale(0.95) rotate(-3deg) !important;
+  box-shadow: 1.1px 1.1px 0px #0f1419;
+}
+
+.card-sticker-emoji {
+  font-size: 16.5px;
+}
+
+.card-sticker-count {
+  font-size: 12.1px;
+}
+
+.leaderboard {
+  color: #f7efe4;
+  background:
+    linear-gradient(rgba(20, 18, 16, 0.88), rgba(20, 18, 16, 0.92)),
+    radial-gradient(circle at 20% 10%, rgba(201, 65, 74, 0.6), transparent 28rem),
+    #15110f;
+}
+
+.leaderboard .section-heading p:last-child {
+  color: rgba(247, 239, 228, 0.72);
+}
+
+.evidence-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.evidence-card {
+  position: relative;
+  border-color: rgba(255, 248, 232, 0.18);
+  border-radius: 26px;
+  padding: 24px;
+  color: var(--ink);
+  background: #fffdf5;
+}
+
+.rank {
+  display: inline-flex;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #fff;
+  background: var(--red);
+  font-weight: 900;
+}
+
+.evidence-card p {
+  margin: 0 0 20px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.14;
+}
+
+.mini-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mini-reactions span {
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: var(--paper-2);
+  font-size: 0.9rem;
+}
+
+.join {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(28px, 5vw, 70px);
+  margin: 72px clamp(20px, 5vw, 80px);
+  border-radius: 38px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(85, 201, 228, 0.5), transparent 18rem),
+    #fffdf5;
+}
+
+.join-copy p:last-child {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.interest-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.interest-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.interest-form input,
+.interest-form textarea {
+  width: 100%;
+  border: 2px solid rgba(28, 23, 20, 0.18);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: var(--ink);
+  background: #fff8e8;
+  outline: none;
+}
+
+.interest-form input:focus,
+.interest-form textarea:focus {
+  border-color: var(--red);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.primary-button {
+  justify-self: start;
+  font-weight: 900;
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.form-note {
+  margin: 0;
+  color: var(--red);
+  font-weight: 800;
+}
+
+@media (max-width: 1050px) {
+  .hero-grid,
+  .context-card,
+  .join {
+    grid-template-columns: 1fr;
+  }
+
+  .masonry {
+    column-count: 2;
+  }
+
+  .timeline,
+  .evidence-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .section-pad {
+    padding: 64px 18px;
+  }
+
+  .topbar {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  h1 {
+    font-size: clamp(4.2rem, 24vw, 7rem);
+  }
+
+  .timeline,
+  .evidence-board,
+  .interest-form {
+    grid-template-columns: 1fr;
+  }
+
+  .masonry {
+    column-count: 1;
+  }
+
+  .tweet-card {
+    transform: rotate(0deg);
+  }
+
+  .join {
+    margin: 48px 18px;
+  }
+}
+
+/* Green Thumbs Up Custom Stamp Styling */
+.card-sticker-badge.badge-thumbsup {
+  border-color: #18a66a;
+  box-shadow: 2.2px 2.2px 0px #18a66a;
+  background: #e6f7ef;
+  color: #18a66a;
+}
+.card-sticker-badge.badge-thumbsup:hover {
+  background: #f0fbf6;
+  box-shadow: 3.3px 3.3px 0px #18a66a;
+}
+
+/* Circular Reaction Dial/Wheel Menu (Replaces Capsule) */
+.tweet-card .tweet-reaction-wheel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5) rotate(-90deg);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+}
+
+.tweet-card:hover .tweet-reaction-wheel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Circularly Position Emojis in the Wheel */
+.tweet-card .wheel-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  font-size: 19px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+/* Position mapping */
+.tweet-card .wheel-btn.thumbsup {
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tweet-card .wheel-btn.fire {
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tweet-card .wheel-btn.heart {
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tweet-card .wheel-btn.crazy {
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tweet-card .wheel-btn:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Responsiveness overrides for Mobile */
+@media (max-width: 1050px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .masonry {
+    column-count: 1;
+  }
+  .tweet-card {
+    transform: rotate(0deg) !important;
+  }
+}
