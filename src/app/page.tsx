@@ -39,6 +39,15 @@ export default function Home() {
     setRevealCoords({ x, y });
   };
 
+  const handleRevealTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touch = e.touches[0];
+    if (!touch) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((touch.clientX - rect.left) / rect.width) * 100;
+    const y = ((touch.clientY - rect.top) / rect.height) * 100;
+    setRevealCoords({ x, y });
+  };
+
   return (
     <main>
       <section className="hero section-pad">
@@ -92,6 +101,15 @@ export default function Home() {
               onMouseMove={handleRevealMouseMove}
               onMouseEnter={() => setIsRevealHovered(true)}
               onMouseLeave={() => {
+                setIsRevealHovered(false);
+                setRevealCoords({ x: 50, y: 50 });
+              }}
+              onTouchStart={(e) => {
+                setIsRevealHovered(true);
+                handleRevealTouchMove(e);
+              }}
+              onTouchMove={handleRevealTouchMove}
+              onTouchEnd={() => {
                 setIsRevealHovered(false);
                 setRevealCoords({ x: 50, y: 50 });
               }}
