@@ -1,10 +1,10 @@
-# Walkthrough - visual refinements and cleanup
+# Walkthrough - Visual Refinements, Clean Up, and Mobile Responsiveness
 
-This walkthrough documents the visual changes, repository cleanup actions, and validation tests completed.
+This walkthrough documents the visual changes, repository cleanup actions, mobile touch interactions, and validation tests completed.
 
 ---
 
-## 1. Hero Reaction Sticker Scaling
+## 1. Hero Section: Enlarge wobbly reactions by 50%
 
 - **Enlargements**: Scaled up the wobbly stickers (`.reveal-sticker`) in the hero evidence board by 50% in [globals.css](file:///Users/gauravgupta/Developer/Obsidian/ai-brain/Areas/Lowerbasement/Projects/bangerlore/too-much-banger/src/app/globals.css).
 - **Properties**: Updated container padding (`12px 21px`), border (`4.5px`), border-radius (`24px`), box-shadow (`6px`), and child element sizes (`span` text size to `30px`, count text size to `21px`).
@@ -18,22 +18,30 @@ This walkthrough documents the visual changes, repository cleanup actions, and v
 
 ---
 
-## 3. Visual & Technical Audits
+## 3. Mobile Responsiveness & Touch Gestures (Branch: `mobile-responsiveness`)
 
-- **Design Audit**: Executed the design analyst agent and saved [design_audit.md](file:///Users/gauravgupta/Developer/Obsidian/ai-brain/Areas/Lowerbasement/Projects/bangerlore/too-much-banger/decisions/design_audit.md).
-- **Cleanup Audit**: Logged all file removals in [cleanup_audit.md](file:///Users/gauravgupta/Developer/Obsidian/ai-brain/Areas/Lowerbasement/Projects/bangerlore/too-much-banger/decisions/cleanup_audit.md).
+- **Swipe Interaction**: Configured `onTouchStart`, `onTouchMove`, and `onTouchEnd` coordinates logic in [page.tsx](file:///Users/gauravgupta/Developer/Obsidian/ai-brain/Areas/Lowerbasement/Projects/bangerlore/too-much-banger/src/app/page.tsx) so that touch dragging sweeps the spotlight. Set `touch-action: none` on the container in CSS to block window scrolling during swipe.
+- **Double-Column Mobile Timeline**: Set masonry column count to 2 under `max-width: 680px`. Tightened card padding to `10px`, spacing gaps to `12px`, and avatar bounds to `28px` to maximize space for text side-by-side.
+- **Typography & Transition banner Scaling**: Reduced display title sizes by 30%. Scaled down the "Meanwhile..." transition banner border, paddings, shadows, and font sizes by 50% to make it compact.
 
 ---
 
-## 4. Deletions and Pruning
+## 4. Vercel Deployment & Analytics
+
+- **Vercel Manifest Fix**: Pruned custom `distDir: ".next-prod"` from `next.config.ts` and `tsconfig.json` to allow Vercel to discover Next.js build assets in the default `.next` folder.
+- **Vercel Analytics SDK**: Installed `@vercel/analytics` and injected `<Analytics />` tracking in `src/app/layout.tsx`.
+
+---
+
+## 5. Deletions and Pruning
 
 - **Deletions**: Removed `.README.md.swp` swap file.
 - **CSS Purge**: Deleted unused styles (`.hero-art`, `.phone`, `.cup`, `.receipt-slip`, `.polaroid-shot`) and their media queries from `globals.css`.
 
 ---
 
-## 5. Verification Logs
+## 6. Verification Logs
 
 - **Linter & Types**: `npm run typecheck && npm run lint` passed with 0 errors.
 - **Production Build**: `npm run build` compiled the pages successfully.
-- **Layout Tests**: `node rollback-and-test.mjs` confirmed that elements match target specifications.
+- **Layout Tests**: `node decisions/rollback-and-test.mjs` confirmed that elements match target specifications.
